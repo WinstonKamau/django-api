@@ -1,0 +1,6 @@
+#Ignore vscode for editor
+.vscode
+#Ignore env folder for virtual environment
+env
+__pycache__/
+db.sqlite3
