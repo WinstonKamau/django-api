@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+
 from rest_framework import serializers
 
 # Create your models here.
@@ -39,9 +39,4 @@ class Snippet(models.Model):
         self.highlighted = highlight(self.code, lexer, formatter)
         super(Snippet, self).save(*args, **kwargs)
 
-class UserSerializer(serializers.ModelSerializer):
-    snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
 
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'snippets')
